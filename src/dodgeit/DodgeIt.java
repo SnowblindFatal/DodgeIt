@@ -61,6 +61,14 @@ public class DodgeIt {
         thisDoesNothing();
     }
     public void thisDoesNothing(){
+        //here's some new stuff.
+        boolean test = true;
+        while (test){
+            System.out.println("help, I'm stuck here! :C");
+            if (test == false){
+                test = false;
+            }
+        }
         System.out.println("State added to stack.");
         //My original modifications are right here:
         int x = 2000000000;
