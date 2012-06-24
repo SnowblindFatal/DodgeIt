@@ -62,8 +62,14 @@ public class DodgeIt {
     }
     public void thisDoesNothing(){
         System.out.println("State added to stack.");
+        //My original modifications are right here:
         int x = 2000000000;
         x += x + x + x * x; //overflows?
         System.out.println(x);
+        //And then I'm gonna modify your stuff just for the sake of it:
+        for (int i = 0;i < 10;i = i += 2){
+            System.out.println(i);
+            i *= 2;
+        }
     }
 }
