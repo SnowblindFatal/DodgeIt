@@ -70,4 +70,7 @@ public class DodgeIt {
     public void addToStack(statics.state state){
         stateStack.add(state);
     }
+    public void thisDoesNothing(){
+        
+    }
 }
