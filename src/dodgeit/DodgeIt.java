@@ -62,5 +62,8 @@ public class DodgeIt {
     }
     public void thisDoesNothing(){
         System.out.println("State added to stack.");
+        int x = 2000000000;
+        x += x + x + x * x; //overflows?
+        System.out.println(x);
     }
 }
