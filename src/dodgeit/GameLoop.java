@@ -6,6 +6,7 @@ import org.lwjgl.opengl.Display;
  *
  * @author juho
  */
+
 public class GameLoop extends LoopTemplate{
     boolean quitBoolean = false;
     private long small = 9223372036854775807L;
