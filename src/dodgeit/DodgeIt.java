@@ -62,5 +62,7 @@ public class DodgeIt {
     }
     public void thisDoesNothing(){
         System.out.println("State added to stack.");
+        for (int i = 0;i < 10;i++)
+            System.out.println(i);
     }
 }
