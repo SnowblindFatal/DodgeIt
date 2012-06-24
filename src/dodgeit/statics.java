@@ -9,11 +9,7 @@ package dodgeit;
  * @author juho
  */
 public class statics {
-    public static enum state{
-        MENU_STATE,
-        GAME_STATE
-    }
-    
+   
     public static final String TITLE = "Dodge It!";
     public static final int FRAMERATE = 60;
     public static final int DISPLAY_WIDTH = 800;

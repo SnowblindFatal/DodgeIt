@@ -4,7 +4,7 @@
  */
 package dodgeit;
 
-import dodgeit.statics.state;
+//import dodgeit.statics.state;
 import java.util.Stack;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
@@ -16,13 +16,11 @@ import org.lwjgl.opengl.GL11;
  * @author juho
  */
 public class DodgeIt {
-
-
     
-    private Stack<statics.state> stateStack = new Stack();
-    private GameLoop gameState;
-    private MenuLoop menuState;
-    private LoopTemplate currentState;
+    private Stack<LoopTemplate> stateStack = new Stack();
+    public GameLoop gameState;
+    public MenuLoop menuState;
+    //private LoopTemplate currentState;
     
     public DodgeIt() {
         gameState = new GameLoop(this);
@@ -46,31 +44,23 @@ public class DodgeIt {
         GL11.glOrtho(0, statics.DISPLAY_WIDTH, 0, statics.DISPLAY_HEIGHT, 1, -1);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
-        stateStack.push(statics.state.MENU_STATE);
+        stateStack.push(menuState);
         stackHandler();
     }
 
     private void stackHandler() {
-        System.out.println(statics.state.MENU_STATE);
+        //System.out.println(statics.state.MENU_STATE);
         while (stateStack.empty() == false) {
-            switch (stateStack.pop()){
-                case MENU_STATE:
-                    currentState = menuState;
-                    break;
-                case GAME_STATE:
-                    currentState = gameState;
-                    break;
-            }
-
-            currentState.run();
+            stateStack.pop().run();
         }
 
         Display.destroy();
     }
-    public void addToStack(statics.state state){
+    public void addToStack(LoopTemplate state){
         stateStack.add(state);
+        thisDoesNothing();
     }
     public void thisDoesNothing(){
-        
+        System.out.println("State added to stack.");
     }
 }
