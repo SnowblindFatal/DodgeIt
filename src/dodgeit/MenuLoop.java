@@ -46,7 +46,7 @@ public class MenuLoop extends LoopTemplate {
                     quitBoolean = true;
                     break;
                 case Keyboard.KEY_RETURN:
-                    game.addToStack(statics.GAME_STATE);
+                    game.addToStack(statics.state.GAME_STATE);
                     quitBoolean = true;
                     break;
                 case Keyboard.KEY_SPACE:

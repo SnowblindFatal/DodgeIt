@@ -4,6 +4,7 @@
  */
 package dodgeit;
 
+import dodgeit.statics.state;
 import java.util.Stack;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
@@ -18,7 +19,7 @@ public class DodgeIt {
 
 
     
-    private Stack<Integer> stateStack = new Stack();
+    private Stack<statics.state> stateStack = new Stack();
     private GameLoop gameState;
     private MenuLoop menuState;
     private LoopTemplate currentState;
@@ -45,17 +46,18 @@ public class DodgeIt {
         GL11.glOrtho(0, statics.DISPLAY_WIDTH, 0, statics.DISPLAY_HEIGHT, 1, -1);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
-        stateStack.push(statics.MENU_STATE);
+        stateStack.push(statics.state.MENU_STATE);
         stackHandler();
     }
 
     private void stackHandler() {
+        System.out.println(statics.state.MENU_STATE);
         while (stateStack.empty() == false) {
             switch (stateStack.pop()){
-                case statics.MENU_STATE:
+                case MENU_STATE:
                     currentState = menuState;
                     break;
-                case statics.GAME_STATE:
+                case GAME_STATE:
                     currentState = gameState;
                     break;
             }
@@ -65,7 +67,7 @@ public class DodgeIt {
 
         Display.destroy();
     }
-    public void addToStack(int state){
+    public void addToStack(statics.state state){
         stateStack.add(state);
     }
 }
